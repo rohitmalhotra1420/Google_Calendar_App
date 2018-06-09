@@ -1,0 +1,36 @@
+@import '~antd/dist/antd.css';
+
+
+.box{
+    margin-top: 30px;
+}
+.center{
+    text-align: center;
+}
+.meeting-bar{
+    margin-bottom: 8px;
+    font-size: 17px;
+}
+.today-btn{
+    float: right;
+    margin-right: 30px;
+}
+.left-arr-btn{
+    margin-right :17px;
+
+}
+.mycolumn{
+    border: 1px solid rgba(1,1,1,0.2);
+    padding: 5px 0 0 12px;
+}
+.activitycolumn{
+    height: 40px;
+    border: 1px solid rgba(1,1,1,0.2);
+}
+.Day{
+    margin-bottom: 0px;
+}
+.Date{
+    font-size: 35px;
+    margin-bottom: 25px;
+}
