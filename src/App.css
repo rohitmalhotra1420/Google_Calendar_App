@@ -23,6 +23,17 @@
     border: 1px solid rgba(1,1,1,0.2);
     padding: 5px 0 0 12px;
 }
+.hiddencolumn{
+    height: 40px;
+    position: relative;
+}
+.activitytime{
+    font-size: 10px;
+    font-weight: bold;
+    position: absolute;
+    right: 5%;
+    top:-19%;
+}
 .activitycolumn{
     height: 40px;
     border: 1px solid rgba(1,1,1,0.2);

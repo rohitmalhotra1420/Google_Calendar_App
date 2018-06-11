@@ -1,8 +1,11 @@
 import React,{Component} from 'react';
-import {Button,Modal} from 'antd'
+import {Button,Modal,Input,DatePicker} from 'antd'
+import moment from 'moment';
 
 
-
+const { MonthPicker, RangePicker } = DatePicker;
+const dateFormat = 'YYYY/MM/DD';
+const monthFormat = 'YYYY/MM';
 
 class MeetingModal extends Component{
         state = { visible: false }
@@ -27,14 +30,13 @@ class MeetingModal extends Component{
         return(
             <div>
                 <Modal
-                  title="Basic Modal"
+                  title="Event Manager"
                   visible={this.state.visible}
                   onOk={this.handleOk}
                   onCancel={this.handleCancel}
                 >
-                  <p>Some contents...</p>
-                  <p>Some contents...</p>
-                  <p>Some contents...</p>
+                  <Input placeholder="Add Title"size="large" />
+                    <RangePicker defaultValue={[moment('2015/01/01', dateFormat), moment('2015/01/01', dateFormat)]} format={dateFormat}/>
                 </Modal>
               </div>
         );
