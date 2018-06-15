@@ -15,8 +15,10 @@ class Table extends Component{
 
         //states of the dates and current datte is kept empty
         this.state={
-            dates:[],
-            currentDate:""
+            weekDates:[],
+            weekStartDate:null,
+            weekStartDateMonth:null,
+            weekStartDateYear:null,
         };
     }
 
@@ -29,47 +31,57 @@ class Table extends Component{
      Dates(){
         var today = new Date();
         //object for Date() class
-        const day=today.getDay();
+        const currentDay = today.getDay();
         //calculates the current Day Number
         const currentDate = today.getDate() ;
         //calculates the current date
-        const dates=[];
+        const startDateOfWeek = currentDate-currentDay
+
+        const weekStartDateString= new Date(today.setDate(startDateOfWeek));
+
+        const weekDates = [];
         //empty array in which dates are pushed after calculation
-        var weekDate;
 
         //this loop calcultes the next and previous dates of the week W.R.T. current date and push them to an array
         for(var i = 0; i < 7; i++) {
-            if (i <= day) {
-                weekDate= new Date().setDate(currentDate - (day - i));
-            } else {
-                weekDate= new Date().setDate(currentDate + (i - day));
-            }
-            dates.push( new Date(weekDate).getDate()) ;
+
+            var nextDate = new Date(weekStartDateString.getTime() + i * 24 * 60 * 60 * 1000);
+
+            weekDates.push( new Date(nextDate).getDate()) ;
         }
         //the current empty states of dates and currentDate are updated with dates of current week's dates
         this.setState({
-                dates:dates,
-                currentDate:today
+                weekDates:weekDates,
+                weekStartDate:weekStartDateString,
+                weekStartDateMonth:today.getMonth(),
+                weekStartDateYear:today.getFullYear()
 
             })
-         console.log(dates,currentDate);
+         console.log(weekStartDateString,weekDates,today.getMonth(),today.getFullYear());
      }
 
 
     render(){
         return(
             <div>
-                <MeetingBar weekChange={(updatedDates)=>{this.setState({dates:updatedDates})}}
+                <MeetingBar weekChange={(updatedDates)=>{this.setState({weekDates:updatedDates})}}
                             //this change the states of dates and updates them with next week
-                            currentDate={this.state.currentDate}
+                            weekStartDate={this.state.weekStartDate}
                             //passing the current date of the respective week
-                            currentDateChange={(updatedCurrentDate)=>{this.setState({currentDate:updatedCurrentDate})}}
+                            weekStartDateChange={(updatedWeekStartDate)=>{this.setState({weekStartDate:updatedWeekStartDate})}}
                             //this changes the state curent date to date after one week
+                            weekStartDateMonth={this.state.weekStartDateMonth}
+
+                            weekStartDateYear={this.state.weekStartDateYear}
+
+                            monthChange={(updatedWeekStartDateMonth)=>{this.setState({weekStartDateMonth:updatedWeekStartDateMonth})}}
+
+                            yearChange={(updatedWeekStartDateYear)=>{this.setState({weekStartDateYear:updatedWeekStartDateYear})}}
                 />
 
                 <DateColumn days={DateHour.days}
                             //the weekdays are passed to the DateColumn
-                            dates={this.state.dates}
+                            dates={this.state.weekDates}
                             //this is the current state of dates
 
                 />
@@ -78,6 +90,7 @@ class Table extends Component{
                             //the Days and hours are passed here
                             days={7}
                             //it refers to no. of days to be shown in calendar
+                            dates={this.state.weekDates}
                 />
             </div>
         );

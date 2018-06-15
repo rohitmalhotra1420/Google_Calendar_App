@@ -23,6 +23,9 @@
     border: 1px solid rgba(1,1,1,0.2);
     padding: 5px 0 0 12px;
 }
+#highlighted{
+    background-color: #c3c1c152;
+}
 .hiddencolumn{
     height: 40px;
     position: relative;

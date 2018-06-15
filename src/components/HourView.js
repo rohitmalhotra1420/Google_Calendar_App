@@ -3,18 +3,18 @@ import {Col} from 'antd';
 
 
 //this Component is used to add no. of columns
-function DaysCell(props) {
-    var datecells=[];
-    for(var i=0;i<props.dateCell;i++){
-        datecells.push(
-        <Col span={3} >
+function Cell(props) {
+    var dayCells=[];
+    for(var i=0;i<props.dayCell;i++){
+        dayCells.push(
+        <Col span={3} id={props.dates[i]==new Date().getDate()? "highlighted":""}>
             {props.hourCell.map((hour)=>
                     <div className="activitycolumn"key={hour}></div>
                         )}
             </Col>
         );
     }
-    return(datecells.map((datecell,index)=><div key={index+1}>{datecell}</div>))
+    return(dayCells.map((dayCell,index)=><div key={index+1}>{dayCell}</div>))
 
 }
 
@@ -31,7 +31,7 @@ class HourColumn extends Component{
                         )}
                 </Col>
 
-                {<DaysCell dateCell={this.props.days} hourCell={this.props.dateHour.hours}/>}
+                {<Cell dayCell={this.props.days} hourCell={this.props.dateHour.hours}dates={this.props.dates}/>}
 
 
             </div>

@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import {Row,Col} from 'antd';
 
 
-var today = new Date();
-
-
 class DateColumn extends Component{
 
 
@@ -15,7 +12,7 @@ class DateColumn extends Component{
                 <Col span={3}></Col>
                 {this.props.days.map((Day,index)=>
                  //here a map function on 'days' array is used which makes no. of columns equivalemt to no. of days.
-                    <Col span={3} className="mycolumn"key={Day+today}>
+                    <Col span={3} className="mycolumn"key={Day}id={this.props.dates[index]==new Date().getDate()? "highlighted":""}>
                         <p className="Day">{Day}</p>
                         <p className="Date"
                         //Here the final dates are displayed to user after state changes
