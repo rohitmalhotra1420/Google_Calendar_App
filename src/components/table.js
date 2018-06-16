@@ -35,7 +35,7 @@ class Table extends Component{
         //calculates the current Day Number
         const currentDate = today.getDate() ;
         //calculates the current date
-        const startDateOfWeek = currentDate-currentDay
+        const startDateOfWeek = currentDate-currentDay;
 
         const weekStartDateString= new Date(today.setDate(startDateOfWeek));
 
@@ -47,7 +47,7 @@ class Table extends Component{
 
             var nextDate = new Date(weekStartDateString.getTime() + i * 24 * 60 * 60 * 1000);
 
-            weekDates.push( new Date(nextDate).getDate()) ;
+            weekDates.push(new Date(nextDate).toLocaleDateString()) ;
         }
         //the current empty states of dates and currentDate are updated with dates of current week's dates
         this.setState({

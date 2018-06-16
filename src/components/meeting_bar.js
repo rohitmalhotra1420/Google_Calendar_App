@@ -69,7 +69,7 @@ class MeetingBar extends Component{
 
             var nextDate = new Date(DateForNextWeek.getTime() + i * 24 * 60 * 60 * 1000);
 
-            weekDates.push( new Date(nextDate).getDate()) ;
+            weekDates.push(new Date(nextDate).toLocaleDateString());
         }
         console.log(weekStartDate);
         this.props.weekChange(weekDates);
@@ -99,7 +99,7 @@ class MeetingBar extends Component{
 
             var nextDate = new Date(weekStartDateString.getTime() + i * 24 * 60 * 60 * 1000);
 
-            weekDates.push( new Date(nextDate).getDate()) ;
+            weekDates.push( new Date(nextDate).toLocaleDateString()) ;
         }
         //the current empty states of dates and currentDate are updated with dates of current week's dates
 
