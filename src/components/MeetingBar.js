@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import {Row,Col,Icon,Button,Tooltip} from 'antd';
-import calendarFunctions from './CalendarFunctions';
+import calendarFunctions from '../helpers/CalendarFunctions';
 
 
 
 class MeetingBar extends Component{
     render(){
-        const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'];
-        const days=['Mon','Tue','Wed','Thu','Fri','Sat','Sun']
-        const fullDate=new Date();
-        const date=months[fullDate.getMonth()]+" "+fullDate.getFullYear();
-        const today=days[fullDate.getDay()-1]+", "+months[fullDate.getMonth()]+" "+fullDate.getDate();
+        const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'];
+        const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
+        const fullDate = new Date();
+        const today = days[fullDate.getDay()]+", "+months[fullDate.getMonth()]+" "+fullDate.getDate();
         return(
             <Row type="flex"className='meeting-bar'>
                 <Col span={3}></Col>

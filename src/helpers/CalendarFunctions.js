@@ -20,7 +20,6 @@ const calendarFunctions = {
 
   futurePastWeekDates:function(weekStartDate,e){
 
-    var weekStartDate = new Date(weekStartDate);
     var cal = 7 * 24 * 60 * 60 * 1000;
     var startDateForNextWeek = e.target.value ==="right" ? new Date(weekStartDate.getTime() + cal) : new Date(weekStartDate.getTime() - cal);
     var weekStartDateMonth = startDateForNextWeek.getMonth();

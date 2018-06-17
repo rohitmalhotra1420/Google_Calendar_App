@@ -7,7 +7,7 @@ function Cell(props) {
     var dayCells=[];
     for(var i=0;i<props.dayCell;i++){
         dayCells.push(
-        <Col span={3} id={props.dates[i]==new Date().toLocaleDateString() ? "highlighted":""}>
+        <Col span={3} id={props.dates[i] === new Date().toLocaleDateString() ? "highlighted":""}>
             {props.hourCell.map((hour)=>
                     <div className="activitycolumn"key={hour}></div>
                         )}

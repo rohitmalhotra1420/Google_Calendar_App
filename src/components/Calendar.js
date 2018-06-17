@@ -1,8 +1,8 @@
 import React,{Component} from 'react';
 import DateColumn from './DateView';
 import HourColumn from './HourView';
-import MeetingBar from './meeting_bar';
-import calendarFunctions from './CalendarFunctions';
+import MeetingBar from './MeetingBar';
+import calendarFunctions from '../helpers/CalendarFunctions';
 
 const DateHour= {
                     days:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
@@ -10,11 +10,9 @@ const DateHour= {
                 };
 
 
-class Table extends Component{
+class Calendar extends Component{
      constructor(props){
         super(props);
-
-        //states of the dates and current datte is kept empty
         this.state={
             weekDates:[],
             weekStartDate:null,
@@ -23,7 +21,6 @@ class Table extends Component{
         };
     }
 
-    //this function calls the Date() function while rendering the table component
     componentDidMount() {
      this.dates();
     }
@@ -75,4 +72,4 @@ class Table extends Component{
     }
 }
 
-export default Table;
+export default Calendar;
