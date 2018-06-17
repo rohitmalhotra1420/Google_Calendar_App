@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import DateColumn from './DateView';
 import HourColumn from './HourView';
 import MeetingBar from './meeting_bar';
+import calendarFunctions from './CalendarFunctions';
 
 const DateHour= {
                     days:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
@@ -20,44 +21,21 @@ class Table extends Component{
             weekStartDateMonth:null,
             weekStartDateYear:null,
         };
-    } 
+    }
 
     //this function calls the Date() function while rendering the table component
     componentDidMount() {
      this.dates();
     }
 
-    //this function calculates all the dates of the week with respect to the present date
      dates(){
-        var today = new Date();
-        //object for Date() class
-        const currentDay = today.getDay();
-        //calculates the current Day Number
-        const currentDate = today.getDate() ;
-        //calculates the current date
-        const startDateOfWeek = currentDate-currentDay;
-
-        const weekStartDateString= new Date(today.setDate(startDateOfWeek));
-
-        const weekDates = [];
-        //empty array in which dates are pushed after calculation
-
-        //this loop calcultes the next and previous dates of the week W.R.T. current date and push them to an array
-        for(var i = 0; i < 7; i++) {
-
-            var nextDate = new Date(weekStartDateString.getTime() + i * 24 * 60 * 60 * 1000);
-
-            weekDates.push(new Date(nextDate).toLocaleDateString()) ;
-        }
-        //the current empty states of dates and currentDate are updated with dates of current week's dates
-        this.setState({
-                weekDates:weekDates,
-                weekStartDate:weekStartDateString,
-                weekStartDateMonth:today.getMonth(),
-                weekStartDateYear:today.getFullYear()
-
-            })
-         console.log(weekStartDateString,weekDates,today.getMonth(),today.getFullYear());
+       var result=calendarFunctions.currentWeekDates();
+       this.setState({
+               weekDates:result.weekDates,
+               weekStartDate:result.weekStartDateString,
+               weekStartDateMonth:result.today.getMonth(),
+               weekStartDateYear:result.today.getFullYear()
+       })
      }
 
 
