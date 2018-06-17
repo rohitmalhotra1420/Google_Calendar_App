@@ -20,15 +20,15 @@ class Table extends Component{
             weekStartDateMonth:null,
             weekStartDateYear:null,
         };
-    }
+    } 
 
     //this function calls the Date() function while rendering the table component
     componentDidMount() {
-     this.Dates();
+     this.dates();
     }
 
     //this function calculates all the dates of the week with respect to the present date
-     Dates(){
+     dates(){
         var today = new Date();
         //object for Date() class
         const currentDay = today.getDay();
