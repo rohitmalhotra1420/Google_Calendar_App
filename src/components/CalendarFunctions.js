@@ -1,6 +1,7 @@
-
-function calendarFunctions(){
-    console.log("clicked");
+const calendarFunctions={
+  currentWeekDates:function(){
+    console.log('clciked');
+  }
   }
 
 
