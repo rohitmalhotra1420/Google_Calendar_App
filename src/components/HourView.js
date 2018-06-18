@@ -11,7 +11,7 @@ function Cell(props) {
         dayCells.push(
         <Col span={3} id={props.dates[i] === new Date().toLocaleDateString() ? "highlighted":""}>
             {props.hourCell.map((hour)=>
-                    <div className="activitycolumn"key={hour} onClick={()=>{props.showState(show)}}></div>
+                    <div className="activitycolumn" key={hour} onClick={()=>{props.showState(show)}}></div>
                         )}
             </Col>
         );
