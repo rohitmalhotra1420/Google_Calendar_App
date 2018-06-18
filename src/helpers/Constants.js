@@ -19,7 +19,7 @@ const obj = {
   modalObj:{
                 MonthPicker:MonthPicker,
                 RangePicker:RangePicker,
-                dateFormat:'YYYY/MM/DD',
+                dateFormat:'MM/DD/YYYY',
                 monthFormat:'YYYY/MM',
   },
 
