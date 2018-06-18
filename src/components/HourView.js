@@ -63,7 +63,7 @@ class HourColumn extends Component{
                          size="large"
                          className="addEventInput" />
                   <obj.modalObj.RangePicker value={[moment(this.state.selectedDate, obj.modalObj.dateFormat),
-                                                           moment(this.state.selectedDate, obj.modalObj.dateFormat)]}
+                                                    moment(this.state.selectedDate, obj.modalObj.dateFormat)]}
                                             format={obj.modalObj.dateFormat}
                                             className="addEventDatePicker"/>
                 </Modal>
