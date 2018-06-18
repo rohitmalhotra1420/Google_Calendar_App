@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import {Row,Col,Icon,Button,Tooltip} from 'antd';
 import calendarFunctions from '../helpers/CalendarFunctions';
-
+import obj from '../helpers/Constants';
 
 
 class MeetingBar extends Component{
     render(){
-        const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'];
-        const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
-        const fullDate = new Date();
-        const today = days[fullDate.getDay()]+", "+months[fullDate.getMonth()]+" "+fullDate.getDate();
         return(
             <Row type="flex"className='meeting-bar'>
                 <Col span={3}></Col>
@@ -17,7 +13,7 @@ class MeetingBar extends Component{
                     <p className=""><Icon type="calendar" /> Meeting Calendar</p>
                 </Col>
                 <Col span={11} className="">
-                    <Tooltip placement="leftTop" title={today}>
+                    <Tooltip placement="leftTop" title={obj.calendarObj.today}>
                         <Button className='today-btn'onClick={()=>{this.currentWeekDates()}}>Today</Button>
                     </Tooltip>
                 </Col>
@@ -35,7 +31,7 @@ class MeetingBar extends Component{
                     />
                 </Col>
                 <Col span={3} className="center">
-                    <p className="">{months[this.props.weekStartDateMonth]} {this.props.weekStartDateYear}</p>
+                    <p className="">{obj.calendarObj.months[this.props.weekStartDateMonth]} {this.props.weekStartDateYear}</p>
                 </Col>
 
             </Row>

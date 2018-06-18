@@ -48,3 +48,9 @@
     font-size: 35px;
     margin-bottom: 25px;
 }
+.addEventInput{
+  margin-bottom: 20px;
+}
+.addEventDatePicker{
+  width:100%;
+}

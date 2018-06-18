@@ -3,11 +3,7 @@ import DateColumn from './DateView';
 import HourColumn from './HourView';
 import MeetingBar from './MeetingBar';
 import calendarFunctions from '../helpers/CalendarFunctions';
-
-const DateHour= {
-                    days:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
-                    hours:['1 am', '2 am', '3 am', '4 am', '5 am', '6 am', '7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm', '8 pm', '9 pm', '10 pm', '11 pm'],
-                };
+import obj from '../helpers/Constants';
 
 
 class Calendar extends Component{
@@ -39,33 +35,33 @@ class Calendar extends Component{
     render(){
         return(
             <div>
-                <MeetingBar weekChange={(updatedDates)=>{this.setState({weekDates:updatedDates})}}
+                <MeetingBar weekChange = {(updatedDates)=>{this.setState({weekDates:updatedDates})}}
                             //this change the states of dates and updates them with next week
-                            weekStartDate={this.state.weekStartDate}
+                            weekStartDate = {this.state.weekStartDate}
                             //passing the current date of the respective week
-                            weekStartDateChange={(updatedWeekStartDate)=>{this.setState({weekStartDate:updatedWeekStartDate})}}
+                            weekStartDateChange = {(updatedWeekStartDate)=>{this.setState({weekStartDate:updatedWeekStartDate})}}
                             //this changes the state curent date to date after one week
-                            weekStartDateMonth={this.state.weekStartDateMonth}
+                            weekStartDateMonth = {this.state.weekStartDateMonth}
 
-                            weekStartDateYear={this.state.weekStartDateYear}
+                            weekStartDateYear = {this.state.weekStartDateYear}
 
-                            monthChange={(updatedWeekStartDateMonth)=>{this.setState({weekStartDateMonth:updatedWeekStartDateMonth})}}
+                            monthChange = {(updatedWeekStartDateMonth)=>{this.setState({weekStartDateMonth:updatedWeekStartDateMonth})}}
 
-                            yearChange={(updatedWeekStartDateYear)=>{this.setState({weekStartDateYear:updatedWeekStartDateYear})}}
+                            yearChange = {(updatedWeekStartDateYear)=>{this.setState({weekStartDateYear:updatedWeekStartDateYear})}}
                 />
 
-                <DateColumn days={DateHour.days}
+                <DateColumn days = {obj.calendarObj.days}
                             //the weekdays are passed to the DateColumn
-                            dates={this.state.weekDates}
+                            dates = {this.state.weekDates}
                             //this is the current state of dates
 
                 />
 
-                <HourColumn dateHour={DateHour}
+                <HourColumn hours = {obj.calendarObj.hours}
                             //the Days and hours are passed here
-                            days={7}
+                            days = {7}
                             //it refers to no. of days to be shown in calendar
-                            dates={this.state.weekDates}
+                            dates = {this.state.weekDates}
                 />
             </div>
         );
